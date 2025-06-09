@@ -1,3 +1,15 @@
+# Alternative SQLite fix - add to top of streamlit_app.py
+import subprocess
+import sys
+
+try:
+    # Try to upgrade sqlite3 in the environment
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pysqlite3-binary"])
+    import pysqlite3
+    sys.modules['sqlite3'] = pysqlite3
+except:
+    pass  # Fall back to system sqlite3
+
 import streamlit as st
 import os
 import sys
