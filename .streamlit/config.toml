@@ -1,5 +1,3 @@
 [server]
 port = 8501
-
-[global]
-python = "3.10"
+fileWatcherType = "none"
